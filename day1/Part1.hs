@@ -1,4 +1,4 @@
-module Part1 (paragraphLines, maxParagraphs) where
+module Part1 (maxParagraphs) where
 
 -- Returns list of paragraphs, each a list of lines
 paragraphLines :: [String] -> [[String]]
@@ -9,7 +9,7 @@ paragraphLines lines = let (paragraph, rest) = break null lines
                                          (_:rt) -> paragraphLines rt
 
 maxParagraphs :: String -> [Int]
-maxParagraphs calories = map (sum . map read) (paragraphLines (lines calories))
+maxParagraphs = map (sum . map read) . paragraphLines . lines
 
 maxCalories :: String -> Int
 maxCalories = maximum . maxParagraphs

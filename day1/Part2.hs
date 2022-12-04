@@ -2,10 +2,10 @@ module Part2 where
 
 import Data.List
 
-import Part1 (paragraphLines, maxParagraphs)
+import Part1 (maxParagraphs)
 
 maxCaloriesTop3 :: String -> Int
-maxCaloriesTop3 c = sum (take 3 (sortBy (flip compare) (maxParagraphs c)))
+maxCaloriesTop3 = sum . take 3 . sortBy (flip compare) . maxParagraphs
 
 main = do
   calories <- readFile "input.txt"

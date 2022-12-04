@@ -2,11 +2,10 @@ module Part1 ( maxParagraphs ) where
 
 -- Returns list of paragraphs, each a list of lines
 paragraphLines :: [String] -> [[String]]
-paragraphLines [] = []
-paragraphLines lines = let (paragraph, rest) = break null lines
-                        in paragraph : case rest of
-                                         []     -> []
-                                         (_:rt) -> paragraphLines rt
+paragraphLines lines = case break null lines of
+                         ([], _)    -> []
+                         (par, [])  -> [par]
+                         (par, _:t) -> par : paragraphLines t
 
 maxParagraphs :: String -> [Int]
 maxParagraphs = map (sum . map read) . paragraphLines . lines

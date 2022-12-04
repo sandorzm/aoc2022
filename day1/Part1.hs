@@ -1,4 +1,4 @@
-module Part1 (maxParagraphs) where
+module Part1 ( maxParagraphs ) where
 
 -- Returns list of paragraphs, each a list of lines
 paragraphLines :: [String] -> [[String]]

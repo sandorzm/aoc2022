@@ -1,8 +1,8 @@
 module Part2 where
 
-import Data.List
+import Data.List ( sortBy )
 
-import Part1 (maxParagraphs)
+import Part1 ( maxParagraphs )
 
 maxCaloriesTop3 :: String -> Int
 maxCaloriesTop3 = sum . take 3 . sortBy (flip compare) . maxParagraphs

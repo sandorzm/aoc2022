@@ -1,6 +1,6 @@
-module Part1 (ordDiff) where
+module Part1 ( ordDiff ) where
 
-import Data.Char
+import Data.Char ( ord )
 
 ordDiff :: Char -> String -> Int
 ordDiff c s = ord (head s) - ord c

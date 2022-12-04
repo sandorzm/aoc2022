@@ -1,6 +1,6 @@
 module Part2 where
 
-import Part1 (ordDiff)
+import Part1 ( ordDiff )
 
 roundScore :: Int -> Int -> Int
 roundScore their outcome = 1 + (their + outcome - 1) `mod` 3 + outcome * 3

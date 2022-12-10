@@ -4,6 +4,10 @@ module Part1 ( findSignal ) where
 -- of working set chars along with a ring buffer for lastN would be more
 -- efficient (not sure how efficient given everything is immutable). We get away
 -- with this algorithm for now.
+--
+-- Note: set insertion is still O(log(n)) in functional languages because
+-- pointers to unchanged parts of the tree can remain the same. Only the
+-- ancestors of the inserted node must be copied.
 findSignal' :: Int -> Int -> Int -> String -> String -> Int
 findSignal' n pos workingSetSize _ _ | workingSetSize == n = pos
 findSignal' _ _ _ _ [] = -1
